@@ -986,7 +986,7 @@ export default function Dashboard() {
                       <div className="relative">
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 5 }}
-                          className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg"
+                          className="w-20 h-20 sm:w-24 sm:h-24 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg"
                         >
                           {user.avatar}
                         </motion.div>
