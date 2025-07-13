@@ -1,12 +1,12 @@
-## 🚀 Nexus Project Submission 
+## 🚀 Nexus Project 
 
 # 💡 Skill Swap Platform
  
-**Problem Statement:** Build a platform that enables individuals to exchange skills with others – a **Skill Swap Platform**. Users can offer skills they possess and request skills they want to learn, forming mutually beneficial collaborations.
+# A platform that enables individuals to exchange skills with others – a **Skill Swap Platform**. Users can offer skills they possess and request skills they want to learn, forming mutually beneficial collaborations.
 
 ---
 
-## 👥 Team: Team Vajra
+## 👥 Team:
 
 | Role          | Name                | Contact Number | Email Address                      |
 |---------------|---------------------|----------------|------------------------------------|
@@ -41,13 +41,13 @@ This platform promotes peer-to-peer learning, community engagement, and democrat
 
 ---
 
-## 🛠️ Tech Stack (Suggested)
+## 🛠️ Tech Stack 
 
-- **Frontend:** React.js / Next.js
+- **Frontend:** React.js / JavaScript
 - **Backend:** Node.js / Express
 - **Database:** MongoDB / PostgreSQL
-- **Authentication:** Firebase / Auth0
-- **Deployment:** Vercel / Netlify / Render
+- **Authentication:** Auth0
+- **Deployment:** Vercel 
 
 ---
 
