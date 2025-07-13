@@ -624,9 +624,9 @@ export default function Dashboard() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent">
               Exchange Skills,{" "}
               <motion.span
-                className="text-blue-600"
+                className="text-gray-900"
                 animate={{
-                  color: ["#2563eb", "#7c3aed", "#dc2626", "#2563eb"],
+                  color: ["#111827", "#374151", "#6b7280", "#111827"],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
