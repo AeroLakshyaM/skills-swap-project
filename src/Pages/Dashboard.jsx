@@ -14,7 +14,6 @@ import {
   Award,
   Calendar,
   Bell,
-  Settings,
   User,
   MapPin,
   Clock,
