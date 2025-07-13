@@ -309,7 +309,7 @@ export default function Login() {
 
             <motion.button
               type="submit"
-              disabled={loading}
+              disabled={loading || undefined}
               whileHover={{ scale: loading ? 1 : 1.02 }}
               whileTap={{ scale: loading ? 1 : 0.98 }}
               className={`
@@ -361,8 +361,7 @@ export default function Login() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
           className="mt-6 text-center"
-        >
-        </motion.div>
+        ></motion.div>
       </motion.div>
     </div>
   );
