@@ -489,7 +489,7 @@ export default function Signup() {
                 ${
                   loading
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 shadow-lg hover:shadow-xl"
+                    : "bg-black hover:bg-gray-800 shadow-lg hover:shadow-xl"
                 }
               `}
             >
