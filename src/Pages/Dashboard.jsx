@@ -812,7 +812,7 @@ export default function Dashboard() {
                 whileHover={{ scale: 1.02, rotate: 180 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={fetchUsers}
-                disabled={loading}
+                disabled={loading || undefined}
                 className="px-4 py-4 border-2 border-gray-200 rounded-2xl hover:border-gray-300 transition-all duration-200 bg-white/80 backdrop-blur-sm"
               >
                 <RefreshCw
