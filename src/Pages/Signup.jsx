@@ -369,7 +369,7 @@ export default function Signup() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mx-auto w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center mb-4"
+            className="mx-auto w-16 h-16 bg-black rounded-full flex items-center justify-center mb-4"
           >
             <UserPlus className="w-8 h-8 text-white" />
           </motion.div>
