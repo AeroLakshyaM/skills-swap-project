@@ -1,22 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Chat() {
   const { swapRequestId } = useParams();
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [swapRequest, setSwapRequest] = useState(null);
   const [otherUser, setOtherUser] = useState(null);
   const messagesEndRef = useRef(null);
-  
-  const currentUserId = localStorage.getItem('userId');
+
+  const currentUserId = localStorage.getItem("userId");
 
   useEffect(() => {
     if (!currentUserId) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
     fetchSwapRequestDetails();
@@ -33,42 +33,54 @@ export default function Chat() {
 
   const fetchSwapRequestDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/swap-requests/received/${currentUserId}`);
+      const response = await fetch(
+        `http://localhost:4000/api/swap-requests/received/${currentUserId}`,
+      );
       if (response.ok) {
         const requests = await response.json();
-        const request = requests.find(r => r.id == swapRequestId);
-        
+        const request = requests.find((r) => r.id == swapRequestId);
+
         if (!request) {
           // Try sent requests
-          const sentResponse = await fetch(`http://localhost:4000/api/swap-requests/sent/${currentUserId}`);
+          const sentResponse = await fetch(
+            `http://localhost:4000/api/swap-requests/sent/${currentUserId}`,
+          );
           if (sentResponse.ok) {
             const sentRequests = await sentResponse.json();
-            const sentRequest = sentRequests.find(r => r.id == swapRequestId);
+            const sentRequest = sentRequests.find((r) => r.id == swapRequestId);
             if (sentRequest) {
               setSwapRequest(sentRequest);
-              setOtherUser({ name: sentRequest.to_user_name, id: sentRequest.to_user_id });
+              setOtherUser({
+                name: sentRequest.to_user_name,
+                id: sentRequest.to_user_id,
+              });
             }
           }
         } else {
           setSwapRequest(request);
-          setOtherUser({ name: request.from_user_name, id: request.from_user_id });
+          setOtherUser({
+            name: request.from_user_name,
+            id: request.from_user_id,
+          });
         }
       }
     } catch (err) {
-      console.error('Error fetching swap request details:', err);
+      console.error("Error fetching swap request details:", err);
     }
   };
 
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/api/chat/${swapRequestId}`);
+      const response = await fetch(
+        `http://localhost:4000/api/chat/${swapRequestId}`,
+      );
       if (!response.ok) {
-        throw new Error('Failed to fetch messages');
+        throw new Error("Failed to fetch messages");
       }
       const data = await response.json();
       setMessages(data);
-      
+
       // Mark messages as read
       markMessagesAsRead();
     } catch (err) {
@@ -81,22 +93,27 @@ export default function Chat() {
   const markMessagesAsRead = async () => {
     try {
       // Mark chat message notifications as read
-      const response = await fetch(`http://localhost:4000/api/notifications/${currentUserId}`);
+      const response = await fetch(
+        `http://localhost:4000/api/notifications/${currentUserId}`,
+      );
       if (response.ok) {
         const notifications = await response.json();
-        const chatNotifications = notifications.filter(n => 
-          n.type === 'chat_message' && !n.is_read
+        const chatNotifications = notifications.filter(
+          (n) => n.type === "chat_message" && !n.is_read,
         );
-        
+
         // Mark each unread chat notification as read
         for (const notification of chatNotifications) {
-          await fetch(`http://localhost:4000/api/notifications/${notification.id}/read`, {
-            method: 'PUT'
-          });
+          await fetch(
+            `http://localhost:4000/api/notifications/${notification.id}/read`,
+            {
+              method: "PUT",
+            },
+          );
         }
       }
     } catch (err) {
-      console.error('Error marking messages as read:', err);
+      console.error("Error marking messages as read:", err);
     }
   };
 
@@ -105,44 +122,47 @@ export default function Chat() {
     if (!newMessage.trim()) return;
 
     try {
-      const response = await fetch(`http://localhost:4000/api/chat/${swapRequestId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `http://localhost:4000/api/chat/${swapRequestId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            sender_id: parseInt(currentUserId),
+            receiver_id: otherUser.id,
+            message: newMessage.trim(),
+          }),
         },
-        body: JSON.stringify({
-          sender_id: parseInt(currentUserId),
-          receiver_id: otherUser.id,
-          message: newMessage.trim()
-        })
-      });
+      );
 
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
 
       const data = await response.json();
-      
+
       // Add the new message to the list
       const newMsg = {
         id: data.id,
         sender_id: parseInt(currentUserId),
         message: newMessage.trim(),
         created_at: new Date().toISOString(),
-        sender_name: 'You'
+        sender_name: "You",
       };
-      
-      setMessages(prev => [...prev, newMsg]);
-      setNewMessage('');
+
+      setMessages((prev) => [...prev, newMsg]);
+      setNewMessage("");
     } catch (err) {
       setError(err.message);
     }
   };
 
   const formatTime = (dateString) => {
-    return new Date(dateString).toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit'
+    return new Date(dateString).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -158,16 +178,26 @@ export default function Chat() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => navigate('/swap-requests')}
+                onClick={() => navigate("/swap-requests")}
                 className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <div>
                 <h1 className="text-lg font-semibold text-gray-900">
-                  Chat with {otherUser?.name || 'User'}
+                  Chat with {otherUser?.name || "User"}
                 </h1>
                 {swapRequest && (
                   <p className="text-sm text-gray-500">
@@ -207,19 +237,23 @@ export default function Chat() {
               messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${message.sender_id == currentUserId ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${message.sender_id == currentUserId ? "justify-end" : "justify-start"}`}
                 >
                   <div
                     className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                       message.sender_id == currentUserId
-                        ? 'bg-black text-white'
-                        : 'bg-gray-100 text-gray-900'
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-gray-900"
                     }`}
                   >
                     <p className="text-sm">{message.message}</p>
-                    <p className={`text-xs mt-1 ${
-                      message.sender_id == currentUserId ? 'text-gray-300' : 'text-gray-500'
-                    }`}>
+                    <p
+                      className={`text-xs mt-1 ${
+                        message.sender_id == currentUserId
+                          ? "text-gray-300"
+                          : "text-gray-500"
+                      }`}
+                    >
                       {formatTime(message.created_at)}
                     </p>
                   </div>
@@ -238,7 +272,7 @@ export default function Chat() {
                 onChange={(e) => setNewMessage(e.target.value)}
                 placeholder="Type your message..."
                 className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                disabled={loading}
+                disabled={loading || undefined}
               />
               <button
                 type="submit"
