@@ -362,9 +362,6 @@ export default function Login() {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="mt-6 text-center"
         >
-          <p className="text-sm text-gray-500">
-            Secure sign-in powered by Nexus
-          </p>
         </motion.div>
       </motion.div>
     </div>
