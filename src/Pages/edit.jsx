@@ -28,7 +28,7 @@ import {
   Star,
 } from "lucide-react";
 
-const InputField = ({ label, icon: Icon, error, ...props }) => {
+const InputField = ({ label, icon: IconComponent, error, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
