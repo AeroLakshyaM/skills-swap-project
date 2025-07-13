@@ -88,7 +88,7 @@ const InputField = ({ label, icon: IconComponent, error, ...props }) => {
   );
 };
 
-const TextAreaField = ({ label, icon: Icon, error, ...props }) => {
+const TextAreaField = ({ label, icon: IconComponent, error, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
