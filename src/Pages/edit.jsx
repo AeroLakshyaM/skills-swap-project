@@ -568,7 +568,7 @@ export default function EditProfilePage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSave}
-                disabled={isSaving}
+                disabled={isSaving || undefined}
                 className={`px-6 py-2 rounded-xl transition-all duration-300 flex items-center gap-2 ${
                   isSaving
                     ? "bg-gray-400 cursor-not-allowed"
