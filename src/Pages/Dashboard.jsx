@@ -494,17 +494,6 @@ export default function Dashboard() {
                           My Profile
                         </motion.button>
                         <motion.button
-                          whileHover={{ backgroundColor: "#f9fafb" }}
-                          className="w-full text-left px-4 py-3 transition-colors duration-150 flex items-center gap-3"
-                          onClick={() => {
-                            navigate("/settings");
-                            setShowProfileDropdown(false);
-                          }}
-                        >
-                          <Settings className="w-4 h-4" />
-                          Settings
-                        </motion.button>
-                        <motion.button
                           whileHover={{ backgroundColor: "#fef2f2" }}
                           className="w-full text-left px-4 py-3 transition-colors duration-150 last:rounded-b-xl text-red-600 flex items-center gap-3"
                           onClick={() => {
