@@ -102,7 +102,7 @@ const TextAreaField = ({ label, icon: IconComponent, error, ...props }) => {
       </label>
       <div className="relative">
         <div className="absolute top-3 left-3 pointer-events-none">
-          <Icon
+          <IconComponent
             className={`h-5 w-5 transition-colors duration-300 ${
               isFocused
                 ? "text-blue-500"
