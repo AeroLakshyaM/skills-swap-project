@@ -5,11 +5,11 @@ import UserProfilePage from "./Pages/profiler";
 import EditProfilePage from "./Pages/edit";
 import ProfileRequestPage from "./Pages/profilerequest";
 import ChatApp from "./Pages/chat";
-import AdminDashboardPage from "./Pages/admin";
+
 import ContactUs from "./Pages/ContactUs";
 import Faq from "./Pages/faq";
 import Signup from "./Pages/Signup";
-import Login from "./Pages/login";
+import Login from "./Pages/Login";
 import Dashboard from "./Pages/Dashboard";
 import SwapRequests from "./Pages/SwapRequests";
 import ChatList from "./Pages/ChatList";
@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/edit" element={<EditProfilePage />} />
           <Route path="/profilerequest" element={<ProfileRequestPage />} />
           <Route path="/chat" element={<ChatApp />} />
-          <Route path="/admin" element={<AdminDashboardPage />} />
+
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/landing" element={<Landing />} />
@@ -45,7 +45,6 @@ export default function App() {
           <Route path="/chat/:swapRequestId" element={<ChatApp />} />
           <Route path="/chat-list" element={<ChatList />} />
           <Route path="/about" element={<About />} />
-
         </Routes>
       </Layout>
     </BrowserRouter>
