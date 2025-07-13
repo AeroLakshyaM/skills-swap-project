@@ -276,7 +276,7 @@ export default function Chat() {
               />
               <button
                 type="submit"
-                disabled={!newMessage.trim() || loading}
+                disabled={!newMessage.trim() || loading || undefined}
                 className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Send
