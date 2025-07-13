@@ -237,7 +237,7 @@ export default function Login() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mx-auto w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-4"
+            className="mx-auto w-16 h-16 bg-black rounded-full flex items-center justify-center mb-4"
           >
             <User className="w-8 h-8 text-white" />
           </motion.div>
@@ -318,7 +318,7 @@ export default function Login() {
                 ${
                   loading
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl"
+                    : "bg-black hover:bg-gray-800 shadow-lg hover:shadow-xl"
                 }
               `}
             >
