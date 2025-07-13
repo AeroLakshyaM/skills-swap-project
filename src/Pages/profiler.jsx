@@ -1,11 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { useNavigate, useLocation } from "react-router";
 import {
   User,
