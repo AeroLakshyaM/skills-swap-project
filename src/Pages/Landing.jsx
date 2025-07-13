@@ -79,7 +79,7 @@ export default function Index() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const elements = document.querySelectorAll("[data-animate]");
@@ -542,7 +542,7 @@ export default function Index() {
         </div>
       </main>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%,
           100% {
