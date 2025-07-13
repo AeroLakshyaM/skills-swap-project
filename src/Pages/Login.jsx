@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, ArrowRight, User } from "lucide-react";
 import axios from "axios";
 
-const InputField = ({ icon: Icon, error, ...props }) => {
+const InputField = ({ icon: IconComponent, error, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
