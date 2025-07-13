@@ -1140,58 +1140,6 @@ export default function Dashboard() {
           </motion.div>
         )}
       </motion.main>
-
-      {/* Enhanced Footer */}
-      <motion.footer
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="border-t border-gray-100 mt-16 bg-white/50 backdrop-blur-sm"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-xl font-bold">NEXUS</h3>
-              </div>
-              <p className="text-gray-600">
-                The premier platform for skill exchange and professional
-                networking.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
-              <div className="space-y-2 text-gray-600">
-                <p>How it works</p>
-                <p>Success stories</p>
-                <p>Community</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <div className="space-y-2 text-gray-600">
-                <p>Help center</p>
-                <p>Contact us</p>
-                <p>Safety</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
-              <div className="space-y-2 text-gray-600">
-                <p>Twitter</p>
-                <p>LinkedIn</p>
-                <p>Newsletter</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 NEXUS Platform. Connect. Learn. Grow. ✨</p>
-          </div>
-        </div>
-      </motion.footer>
     </div>
   );
 }
