@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+
 import {
   ChevronDown,
   Play,
@@ -19,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const [currentFeature, setCurrentFeature] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -105,7 +108,7 @@ export default function Index() {
       title: "Security",
       description: "Exceptional protection that you can trust",
       color: "text-black",
-      illustration: "🛡️",
+      illustration: "🛡",
     },
   ];
 
@@ -230,7 +233,10 @@ export default function Index() {
               </a>
             ))}
           </div>
-          <button className="bg-gradient-to-r from-black to-gray-800 text-white px-6 py-2 rounded-full hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="bg-gradient-to-r from-black to-gray-800 text-white px-6 py-2 rounded-full hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group"
+          >
             <span className="relative z-10">Get Started</span>
             <div className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
           </button>
@@ -285,7 +291,10 @@ export default function Index() {
                 animationDelay: "0.6s",
               }}
             >
-              <button className="group bg-gradient-to-r from-black to-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-gray-900 hover:to-black transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-2xl relative overflow-hidden">
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="group bg-gradient-to-r from-black to-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-gray-900 hover:to-black transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-2xl relative overflow-hidden"
+              >
                 <span className="flex items-center space-x-2 relative z-10">
                   <span>Start Your Journey</span>
                   <Sparkles className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
@@ -517,7 +526,10 @@ export default function Index() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group bg-gradient-to-r from-black to-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden">
+                <button
+                  onClick={() => navigate("/dashboard")}
+                  className="group bg-gradient-to-r from-black to-gray-800 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden"
+                >
                   <span className="relative z-10 flex items-center space-x-2">
                     <span>Start Your Upskilling Today</span>
                     <Rocket className="w-5 h-5 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />

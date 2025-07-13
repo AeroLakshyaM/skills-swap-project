@@ -17,7 +17,7 @@ const Footer = () => {
     { name: "Home", href: "/", isActive: true },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
-    { name: "FAQ", href: "/faq" },
+    { name: "FAQ", href: "/faq" }
   ];
 
   const socialLinks = [
@@ -103,6 +103,7 @@ const Footer = () => {
             </nav>
           </div>
 
+          {/* Right Side - Social Media */}
           <div className="lg:col-span-1 lg:text-right">
             <h3 className="text-2xl font-semibold mb-8 text-white">
               Follow Us
@@ -140,10 +141,12 @@ const Footer = () => {
               ))}
             </div>
 
+            {/* Newsletter Signup */}
             <div className="lg:text-right"></div>
           </div>
         </div>
 
+        {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
@@ -154,6 +157,7 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-gray-900/5 to-black/5 animate-pulse"></div>
     </footer>
   );
