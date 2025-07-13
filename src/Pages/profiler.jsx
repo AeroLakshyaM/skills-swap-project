@@ -487,6 +487,10 @@ export default function UserProfilePage() {
                       <h3 className="text-2xl font-bold text-gray-900">
                         Featured Projects
                       </h3>
+                      <p className="text-gray-600 leading-relaxed text-lg">
+                        {profileData.bio ||
+                          "No Featured projects yet. Click 'Edit Profile' to add your milestones."}
+                      </p>
                     </div>
                     <div className="grid gap-6">
                       {profileData.projects
