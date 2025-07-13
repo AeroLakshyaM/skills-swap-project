@@ -533,9 +533,7 @@ export default function Signup() {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="mt-6 text-center"
         >
-          <p className="text-sm text-gray-500">
-            By creating an account, you agree to our Terms of Service
-          </p>
+      
         </motion.div>
       </motion.div>
     </div>
