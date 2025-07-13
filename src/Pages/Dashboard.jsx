@@ -338,10 +338,8 @@ export default function Dashboard() {
   // Add event listeners
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
-    document.addEventListener("mousemove", handleMouseMove);
     return () => {
       document.removeEventListener("click", handleClickOutside);
-      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [showFilters, showProfileDropdown]);
 
