@@ -18,7 +18,7 @@ const InputField = ({ icon: IconComponent, error, ...props }) => {
         className={`relative transition-all duration-300 ${isFocused || props.value ? "transform -translate-y-1" : ""}`}
       >
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Icon
+          <IconComponent
             className={`h-5 w-5 transition-colors duration-300 ${
               isFocused
                 ? "text-blue-500"
