@@ -198,7 +198,7 @@ function FeaturedUserCard({ user, onClick }) {
     >
       <div className="flex items-center gap-4 mb-4">
         <div className="relative">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+          <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
             {user.avatar}
           </div>
           {user.isOnline && (
