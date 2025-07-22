@@ -62,7 +62,7 @@ This platform promotes peer-to-peer learning, community engagement, and democrat
 
 ## 🛠️ How to Use
 
-### 1. Clone the Repository
+### Clone the Repository
 ```bash
 git clone https://github.com/your-username/skill-swap-platform.git
 cd skill-swap-platform
@@ -72,11 +72,3 @@ npm install
 
 npm run dev
 
-
-## 📞 Contact Us
-
-For any queries or collaborations, feel free to contact any of our team members through the provided email addresses or phone numbers.
-
----
-
-> _This project is submitted as a part of the Nexus Hackathon under the Skill Swap Platform problem statement by Team Vajra._
